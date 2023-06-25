@@ -1,4 +1,4 @@
-.main {
+/* .main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -106,8 +106,9 @@
 
 .logo {
   position: relative;
-}
+}*/
 /* Enable hover only on non-touch devices */
+
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
