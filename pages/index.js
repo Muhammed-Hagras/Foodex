@@ -5,10 +5,12 @@ import Layout from "@/components/Layout";
 import Hero from "../components/Hero.jsx";
 import css from "../styles/Home.module.css";
 import Services from "@/components/Services.jsx";
+import { client } from "@/lib/client.js";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({ pizzas }) {
+  console.log(pizzas);
   return (
     <Layout>
       <div className={css.container}>
@@ -26,3 +28,13 @@ export default function Home() {
     </Layout>
   );
 }
+
+export const getServerSideProps = async () => {
+  const query = '*[_type=="pizza"]';
+  const pizzas = await client.fetch(query);
+  return {
+    props: {
+      pizzas,
+    },
+  };
+};

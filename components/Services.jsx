@@ -34,6 +34,7 @@ const Services = () => {
           <div className={css.ImageWrapper}>
             <Image src={s3} alt="" objectFit="cover" layout="intrinsic" />
           </div>
+
           <span>Easy to order</span>
           <span>Not only fast for us, quality is also number one</span>
         </div>
