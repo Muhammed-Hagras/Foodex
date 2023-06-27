@@ -1,6 +1,6 @@
 import React from "react";
 import css from "../styles/Header.module.css";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/FoodexLogo.png";
 import Image from "next/image";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 const Header = () => {

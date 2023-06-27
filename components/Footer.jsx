@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/FoodexLogo.png";
 import { AiFillFacebook, AiFillGithub, AiFillInstagram } from "react-icons/ai";
 import Image from "next/image";
 import css from "../styles/Footer.module.css";
