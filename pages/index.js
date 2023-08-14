@@ -12,7 +12,6 @@ import pizza from "@/sanity/schemas/pizza.js";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ pizzas }) {
-  console.log(pizzas);
   return (
     <Layout>
       <div className={css.container}>

@@ -5,10 +5,14 @@ import css from "../../styles/Pizza.module.css";
 import Image from "next/image";
 import LeftArrow from "../../assets/arrowLeft.png";
 import RightArrow from "../../assets/arrowRight.png";
+import { useStore } from "@/store/store";
+import toast, { Toaster } from "react-hot-toast";
 
 const Pizza = ({ pizza }) => {
   const [quantity, setquantity] = useState(1);
   const [size, setsize] = useState(1);
+
+  //Quantity handler
   const handleQuantity = (type) => {
     type === "inc"
       ? setquantity((prev) => prev + 1)
@@ -17,6 +21,19 @@ const Pizza = ({ pizza }) => {
       : setquantity((prev) => prev - 1);
   };
   const src = urlFor(pizza.image).url();
+
+  // Add to cart Fun
+  const addPizza = useStore((state) => state.addPizza);
+  const addToCart = () => {
+    addPizza({
+      ...pizza,
+      price: pizza.price[size],
+      quantity: quantity,
+      size: size,
+    });
+    toast.success("Added to cart");
+  };
+
   return (
     <Layout>
       <div className={css.container}>
@@ -36,7 +53,7 @@ const Pizza = ({ pizza }) => {
           <span>{pizza.name}</span>
           <span>{pizza.details}</span>
           <span>
-            <span style={{ color: "var(themeRed)" }}>$</span>
+            <span style={{ color: "var(--themeRed)" }}>$</span>
             {pizza.price[size]}
           </span>
           <div className={css.size}>
@@ -86,8 +103,11 @@ const Pizza = ({ pizza }) => {
             </div>
           </div>
           {/* button */}
-          <div className={`btn ${css.btn}`}>Add to cart</div>
+          <div className={`btn ${css.btn}`} onClick={addToCart}>
+            Add to cart
+          </div>
         </div>
+        <Toaster />
       </div>
     </Layout>
   );

@@ -5,7 +5,6 @@ import { urlFor } from "@/lib/client";
 import Link from "next/link";
 
 const Menu = ({ pizzas }) => {
-  console.log(pizzas);
   return (
     <div className={css.container}>
       <div className={css.heading}>
